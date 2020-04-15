@@ -1,11 +1,9 @@
 import React from 'react';
-import firebase from './firebase';
+import Todo from './components/Todo';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Todo />
   );
 }
 
