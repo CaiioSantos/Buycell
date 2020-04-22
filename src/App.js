@@ -1,10 +1,7 @@
-import React from 'react';
-import Todo from './components/Todo';
+import React from "react";
 
-function App() {
-  return (
-    <Todo />
-  );
-}
+import Routes from "./routes";
+
+const App = () => <Routes />;
 
 export default App;
