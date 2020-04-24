@@ -12,20 +12,21 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 //import Grid from '@material-ui/core/Grid';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Typography from '@material-ui/core/Typography';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Box from '@material-ui/core/Box';
 
 
-const TAX_RATE = 0.07;
+//const TAX_RATE = 0.07;
 
 const useStyles = makeStyles((theme) => ({
   table: {
     minWidth: 700,
-   // color: 'red',
   },
   root: {
     '& > *': {
       margin: theme.spacing(1),
       width: '25ch',
-    //backgroundColor: 'secondary',
 
     },
 }
@@ -49,28 +50,32 @@ function subtotal(items) {
 }
 
 const rows = [
-  createRow('iPhone 11 Pro Max 256GB Prata', 1, 5999.90),
-//   createRow('Paper (Case)'),
-//   createRow('Waste Basket'),
+  createRow('iPhone 11 Pro Max 256GB Prata 6,5"', 1, 5999.90),
 ];
 
 const invoiceSubtotal = subtotal(rows);
-const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal;
+//const invoiceTaxes = TAX_RATE * invoiceSubtotal;
+const invoiceTotal = invoiceSubtotal;
+const invoiceFrete = 0;
+const invoiceCupom = 0;
 
 export default function SpanningTable() {
   const classes = useStyles();
 
   return (
-      <Container>
-    <TableContainer component={Paper}>
+    <Box boxShadow={5}>
+      <Container style={{ marginTop:130}}>
+        <Typography component="h1" variant="h4" color="secondary" style={{ marginBottom: 50}}>
+          Meu Carrinho
+          </Typography>
+    <TableContainer component={Paper} style={{ marginBottom: 50}}>
       <Table className={classes.table} aria-label="spanning table">
         <TableHead>
           <TableRow>
-            <TableCell color="blue">Produto</TableCell>
-            <TableCell color="blue" align="right">Quantidade</TableCell>
-            <TableCell color="blue" align="right">Valor Unit. (R$)</TableCell>
-            <TableCell color="blue" align="right">Total (R$)</TableCell>
+            <TableCell><strong>Produto</strong></TableCell>
+            <TableCell  align="right"><strong>Quantidade</strong></TableCell>
+            <TableCell  align="right"><strong>Valor Unit. (R$)</strong></TableCell>
+            <TableCell  align="right"><strong>Total (R$)</strong></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -85,12 +90,12 @@ export default function SpanningTable() {
 
           <TableRow>
             <TableCell rowSpan={3} />
-            <TableCell colSpan={2}>Subtotal (R$)</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
+            <TableCell colSpan={2}>Frete (R$)</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceFrete)}</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell colSpan={2}>Subtotal (R$)</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
+            <TableCell colSpan={2}>Cupom (R$)</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceCupom)}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell colSpan={2}>Subtotal (R$)</TableCell>
@@ -102,28 +107,41 @@ export default function SpanningTable() {
             <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
           </TableRow> */}
           <TableRow>
-            <TableCell colSpan={2}>Total (R$)</TableCell>
+            <TableCell rowSpan={3} />
+            <TableCell colSpan={2}><strong>Total (R$)</strong></TableCell>
             <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
 
-    <div>
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Calcule o frete" variant="outlined" />
-      <Button variant="contained" color="secondary" style={{ marginTop: 20}}>
+    <div className="row">
+          <div className="col-10">
+          <form className={classes.root} noValidate autoComplete="off">
+      <TextField id="outlined-basic" label="Calcule o frete" variant="outlined" size="small" style={{ marginTop: 15}} />
+      <Button variant="contained" color="secondary" size="small" style={{ marginTop: 20}}>
         Consultar
       </Button>
     </form>
-
-    <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Cupom" variant="outlined" />
-      <Button variant="contained" color="secondary" style={{ marginTop: 20}}>
-        Utilizar
-      </Button>
-    </form>
-    </div>    
+          </div>
+          <div className="col-2">
+          <Button variant="contained" color="secondary" size="large" style={{ marginTop: 20}}>
+            <ShoppingCartIcon>ShoppingCartIcon</ShoppingCartIcon>
+            Finalizar Compra
+          </Button>
+          </div>
+    </div>
+    <div className="row">
+          <div className="col-12">
+          <form className={classes.root} noValidate autoComplete="off">
+        <TextField id="outlined-basic" label="Cupom" variant="outlined" size="small" />
+          <Button variant="contained" color="secondary" size="small" style={{ marginTop: 15, marginBottom:50}}>
+            Utilizar
+          </Button>
+        </form>
+          </div>
+    </div>   
     </Container>
+    </Box>
   );
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
-// import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
@@ -9,17 +8,15 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import { Grid, Container } from '@material-ui/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
 import TextField from '@material-ui/core/TextField';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Box from '@material-ui/core/Box';
 
 
 
@@ -47,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 400,
    minWidth: 675,
     flexGrow: 1,
-    //marginLeft: '20%',
   },
   header: {
     display: 'flex',
@@ -62,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     display: 'block',
     width: '100%',
-    // marginLeft: 100,
   },
   bullet: {
     display: 'inline-block',
@@ -85,7 +80,7 @@ function createData(text1, text2) {
 }
 
 const rows = [
-  createData('Frozen yoghurt', 'cuu159', ),
+  createData('Sistema Operacional', 'iOS 13', ),
   createData('Processador', 'A13 Bionic Neural Engine de terceira geração'),
   createData('Memória interna', '64GB Total sendo uma parte usada para o sistema operacional e aplicativos pré-instalados'),
   createData('Cor','Prata' ),
@@ -210,16 +205,11 @@ export default function TextMobileStepper() {
         </div>
 
         <div className="row col-md-5" style={{marginTop:200}}>
+          <Box boxShadow={5}>
         <Typography className={classes.pos} component="h1" variant="h4" color="textSecondary">
             Características
           </Typography>
         <Table className={classes.table} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Sistema Operacional</TableCell>
-            <TableCell align="right">iOS 13</TableCell>
-          </TableRow>
-        </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.text1}>
@@ -232,7 +222,7 @@ export default function TextMobileStepper() {
           ))}
         </TableBody>
       </Table>
-
+            </Box>
         </div>
       </div>
 

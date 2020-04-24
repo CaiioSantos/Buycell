@@ -7,11 +7,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 
 const products = [
-  { name: 'iPhone 11 Pro Max ', desc: 'Capacidade: 512 GB, Cor: Prata...', price: 'R$8.999,99' },
+  { name: 'iPhone 11 Pro Max 512GB 6,5"', desc: 'Capacidade: 512 GB, Cor: Prata...', price: 'R$5.999,90' },
 ];
 const payments = [
   { name: 'Bandeira', detail: 'MasterCard' },
-  { name: 'Dono do Cartão', detail: 'Paula Tejando' },
+  { name: 'Dono do Cartão', detail: 'Ana Paula' },
   { name: 'Número', detail: 'xxxx-xxxx-xxxx-1234' },
   { name: 'Data de Vencimento', detail: '04/2024' },
 ];
@@ -46,7 +46,7 @@ export default function Review() {
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
-            R$8.999,99
+            R$5.999,90
           </Typography>
         </ListItem>
       </List>
