@@ -7,6 +7,17 @@ import EditarProdutos from './controllers/Produto/Editar&DeletarProduto';
 import Cart from './pages/cart/Cart';
 import Product from './pages/product/Product'
 
+import AddFuncionario from './controllers/Funcionario/AddFuncionario';
+import ListarFuncionario from './controllers/Funcionario/ListarFuncionarios';
+import EditarFuncionario from './controllers/Funcionario/Editar&DeletarFuncionario';
+import ShowFuncionarios from './controllers/Funcionario/ShowFuncionarios';
+import AddUsuario from './controllers/Usuario/AddUsuario';
+import ListarUsuario from './controllers/Usuario/ListarUsuarios';
+import EditarUsuario from './controllers/Usuario/Editar&DeletarUsuario';
+import ShowUsuarios from './controllers/Usuario/ShowUsuarios';
+
+
+
 export default function Routes() {
     return <BrowserRouter>
         <Route path='/' exact component={ListarProduto}/>
@@ -15,5 +26,14 @@ export default function Routes() {
         <Route path="/editar/:id"component={EditarProdutos}/>
         <Route path="/cart/"component={Cart}/>
         <Route path="/product/"component={Product}/>
+        <Route path="/editar/:id"component={EditarProdutos}/>
+        <Route path="/adicionarFuncionario"component={AddFuncionario}/>
+        <Route path="/editarFuncionario/:id"component={EditarFuncionario}/>
+        <Route path="/mostrarFuncionario/:id"component={ShowFuncionarios}/>
+        <Route path='/listarFuncionarios' exact component={ListarFuncionario}/>
+        <Route path="/adicionarUsuario"component={AddUsuario}/>
+        <Route path="/editarUsuario/:id"component={EditarUsuario}/>
+        <Route path="/mostrarUsuario/:id"component={ShowUsuarios}/>
+        <Route path='/listarUsuarios' exact component={ListarUsuario}/>
     </BrowserRouter>
 }
