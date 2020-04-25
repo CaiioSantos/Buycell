@@ -101,11 +101,6 @@ export default function SpanningTable() {
             <TableCell colSpan={2}>Subtotal (R$)</TableCell>
             <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
           </TableRow>
-          {/* <TableRow>
-            <TableCell>Tax</TableCell>
-            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
-          </TableRow> */}
           <TableRow>
             <TableCell rowSpan={3} />
             <TableCell colSpan={2}><strong>Total (R$)</strong></TableCell>
