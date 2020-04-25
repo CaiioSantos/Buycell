@@ -25,14 +25,14 @@ import ShowUsuarios from './controllers/Usuario/ShowUsuarios';
 
 export default function Routes() {
     return <BrowserRouter>
-        <Route path='/aa' exact component={ListarProduto}/>
+        <Route path='/listarProduto' exact component={ListarProduto}/>
         <Route path="/adicionar"component={AddProdutos}/>
         <Route path="/mostrar/:id"component={ShowProdutos}/>
         <Route path="/editar/:id"component={EditarProdutos}/>
         <Route path="/cart/"component={Cart}/>
         <Route path="/product/"component={Product}/>
         <Route path="/home" component={Home}/>
-        <Route path="/login" component={Login}/>
+        <Route path="/" exact component={Login}/>
         <Route path="/signup" component={SignUp}/>
         <Route path="/checkout" component={Checkout}/>
 
