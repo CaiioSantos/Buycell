@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,7 +12,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
+import firebase from '../../Firebase';
+import { render } from '@testing-library/react';
 
 
 function Copyright() {
@@ -67,8 +68,40 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide() {
+
+   
+        
+   
+  
+
+export default function SignInSide({history}) {
   const classes = useStyles();
+  const [ email, setEmail ] = useState('');
+  const [ password, setPassword ] = useState('');
+  
+  function onSubmit(e){    
+    
+  e.preventDefault();
+  alert(email)
+  const ref = firebase.firestore().collection("Usuarios");
+ // doc(this.props.match.params.id);
+alert(ref);
+  ref.get().then((doc) =>{
+      if(doc.exists){
+          console.log(doc);
+          this.setState({
+              usuario: doc.data(),
+              key: doc.id,
+              isLoading: false
+              
+          })
+          alert(doc);
+      }else {
+        alert(doc);
+        history.push('/');
+      }
+  })
+}
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -91,6 +124,7 @@ export default function SignInSide() {
               id="email"
               label="Email"
               name="email"
+              onChange={e => setEmail(e.target.value)}
               autoComplete="email"
               autoFocus
             />
@@ -103,6 +137,7 @@ export default function SignInSide() {
               label="Senha"
               type="password"
               id="password"
+              onChange={e => setPassword(e.target.value)}
               autoComplete="current-password"
             />
             <FormControlLabel
@@ -114,6 +149,7 @@ export default function SignInSide() {
               fullWidth
               variant="contained"
               color="secondary"
+              onClick={onSubmit}
               className={classes.submit}
             >
               Entrar
@@ -125,7 +161,7 @@ export default function SignInSide() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/adicionarUsuario" variant="body2">
                   {"Não tem uma conta? Cadastre-se!"}
                 </Link>
               </Grid>

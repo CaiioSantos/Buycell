@@ -62,7 +62,6 @@ class ListarUsuarios extends React.Component {
                   <td>{usuario.login}</td>
                   <td>{usuario.email}</td>
                   <td>{usuario.cpf}</td>
-                  <Button type="submit" variant="contained" color="primary">TELA DE MOSTRAR</Button>
                 </tr> 
                 )}
 
