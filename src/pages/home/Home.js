@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState, useEffect}from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
@@ -7,6 +7,7 @@ import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './ConfigPost';
 import Sidebar from './Sidebar';
+import api from '../../services/api'
 import Bottom from './Bottom';
 
 
@@ -97,8 +98,19 @@ const sidebar = {
  
 };
 
-export default function Home() {
+const Home = () => {
   const classes = useStyles();
+ 
+  const [ produtos, setProdutos ] = useState([])
+
+  useEffect(() => {
+    async function loadProdutos() {
+      const response = await api.get('/produtos')
+      setProdutos(response.data)
+    }
+
+    loadProdutos()
+  },[])
 
   return (
     <React.Fragment>
@@ -108,8 +120,8 @@ export default function Home() {
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={3}>
-            {featuredPosts.map((post) => (
-              <FeaturedPost key={post.title} post={post} />
+            {produtos.map((produto) => (
+              <FeaturedPost key={produto.id} post={produto} />
             ))}
           </Grid>
           <Grid container spacing={2} className={classes.mainGrid}>
@@ -125,3 +137,5 @@ export default function Home() {
     </React.Fragment>
   );
 }
+
+export default Home

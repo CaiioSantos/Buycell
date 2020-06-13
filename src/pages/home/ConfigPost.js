@@ -51,16 +51,16 @@ export default function FeaturedPost(props) {
                 {post.title}
               </Typography>
               <Typography variant="inherit" color="textSecondary">
-                {post.title2}
+                {post.title}
               </Typography>
               <Typography variant="subtitle1" paragraph>
                 {post.description}
               </Typography>
               <Typography variant="subtitle1" paragraph>
-                {post.description2}
+                {post.description}
               </Typography>
               <Typography variant="subtitle1" paragraph>
-                {post.description3}
+                {post.description}
               </Typography>
               <Typography variant="h4" color="secondary" style={{marginBottom: 22}}> 
                 {post.preco}
@@ -76,7 +76,7 @@ export default function FeaturedPost(props) {
             </CardContent>
           </div>
           <Hidden xsDown>
-            <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
+            <CardMedia className={classes.cardMedia} image={post.url} title={post.imageTitle} />
           </Hidden>
         </Card>
     </Grid>
