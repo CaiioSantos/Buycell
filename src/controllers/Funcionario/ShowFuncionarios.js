@@ -1,11 +1,11 @@
 import React from 'react';
 
-import firebase from '../../Firebase';
+//import firebase from '../../Firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
 
 class MostrarFuncionario extends React.Component {
-    constructor(props) {
+   /* constructor(props) {
         super(props);
         this.state = {
             funcionario: [],
@@ -37,7 +37,7 @@ class MostrarFuncionario extends React.Component {
         });
         
     }
-
+*/
     render() {
 
         return (

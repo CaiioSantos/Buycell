@@ -1,12 +1,12 @@
 import React from 'react';
 
-import firebase from '../../Firebase';
+///import firebase //from '../../Firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class AdicionarFuncionario extends React.Component {
     
-  constructor(props){
+  /*constructor(props){
       
     super(props);
     this.ref = firebase.firestore().collection('Funcionarios')
@@ -45,7 +45,7 @@ class AdicionarFuncionario extends React.Component {
         console.error("Erro ao Adicionar:", error);
     })
   }
-
+*/
   render(){
       const {name, email, password, login} = this.state;
       return(

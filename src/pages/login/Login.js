@@ -12,7 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import firebase from '../../Firebase';
+//mport firebase from '../../Firebase';
 import { render } from '@testing-library/react';
 
 
@@ -78,31 +78,31 @@ export default function SignInSide({history}) {
   const classes = useStyles();
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
-  
+ /* 
   function onSubmit(e){    
     
   e.preventDefault();
   alert(email)
   const ref = firebase.firestore().collection("Usuarios");
  // doc(this.props.match.params.id);
-alert(ref);
-  ref.get().then((doc) =>{
-      if(doc.exists){
-          console.log(doc);
-          this.setState({
-              usuario: doc.data(),
-              key: doc.id,
-              isLoading: false
-              
-          })
+  alert(ref);
+    ref.get().then((doc) =>{
+        if(doc.exists){
+            console.log(doc);
+            this.setState({
+                usuario: doc.data(),
+                key: doc.id,
+                isLoading: false
+                
+            })
+            alert(doc);
+        }else {
           alert(doc);
-      }else {
-        alert(doc);
-        history.push('/');
-      }
-  })
-}
-
+          history.push('/');
+        }
+    })
+  }
+*/
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -149,7 +149,7 @@ alert(ref);
               fullWidth
               variant="contained"
               color="secondary"
-              onClick={onSubmit}
+              
               className={classes.submit}
             >
               Entrar

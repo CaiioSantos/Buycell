@@ -1,11 +1,11 @@
 import React from 'react';
 
-import firebase from '../../Firebase';
+//import firebase from '../../Firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
 
 class Editar extends React.Component {
-    constructor(props) {
+   /* constructor(props) {
         super(props); 
         this.state = {
             key: '',
@@ -86,7 +86,7 @@ onSubmit =(e) =>
   .catch((error)=>{
       console.error("Erro ao Editar:", error);
   })
-}
+}*/
     render() {
 
         return (
@@ -99,7 +99,7 @@ onSubmit =(e) =>
                 </div>
 
                 <div className = "upload-data">
-                    <img src={this.state.url} height="200" width="200" />
+                    <img src={this.state.url} height="200" width="200" alt="foto" />
                 </div>
 
                 <div className="upload-btn-wrapper">

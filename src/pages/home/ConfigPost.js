@@ -48,22 +48,22 @@ export default function FeaturedPost(props) {
           <div className={classes.cardDetails}>
             <CardContent>
               <Typography component="h2" variant="h5">
-                {post.title}
+                {post.id}
               </Typography>
               <Typography variant="inherit" color="textSecondary">
-                {post.title}
+                {post.marca}
               </Typography>
               <Typography variant="subtitle1" paragraph>
                 {post.description}
               </Typography>
               <Typography variant="subtitle1" paragraph>
-                {post.description}
+                {post.ram}GB
               </Typography>
               <Typography variant="subtitle1" paragraph>
-                {post.description}
+                {post.armazenamento}GB
               </Typography>
               <Typography variant="h4" color="secondary" style={{marginBottom: 22}}> 
-                {post.preco}
+                R${post.preco}
               </Typography>
               <Grid container >
               <ColorButton variant="contained" style={{marginRight: 22}} className={classes.margin}
@@ -76,13 +76,10 @@ export default function FeaturedPost(props) {
             </CardContent>
           </div>
           <Hidden xsDown>
-            <CardMedia className={classes.cardMedia} image={post.url} title={post.imageTitle} />
+            <CardMedia className={classes.cardMedia} style={{width: 300, height: 300}} image={post.image} title={post.imageTitle} />
           </Hidden>
         </Card>
     </Grid>
   );
 }
 
-FeaturedPost.propTypes = {
-  post: PropTypes.object,
-};

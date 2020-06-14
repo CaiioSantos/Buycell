@@ -1,6 +1,6 @@
 import React from 'react';
 
-import firebase from '../../Firebase';
+//import firebase from '../../Firebase';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from '@material-ui/core/Button';
@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom'
 
 
 class ListarFuncionarios extends React.Component {
-  constructor(props){
+ /*constructor(props){
     super(props);
     this.ref = firebase.firestore().collection("Funcionarios");
     this.unsubscribe = null;
@@ -37,7 +37,7 @@ class ListarFuncionarios extends React.Component {
     funcionarios
    })
   }
-
+*/
   render(){
     return(
       <div class="container">

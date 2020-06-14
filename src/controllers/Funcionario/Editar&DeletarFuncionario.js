@@ -1,12 +1,12 @@
 import React from 'react';
 
-import firebase from '../../Firebase';
+//import firebase from '../../Firebase';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
 
 class EditarFuncionario extends React.Component {
-    constructor(props) {
+    /*constructor(props) {
         super(props); 
         this.state = {
             key: '',
@@ -61,7 +61,7 @@ onSubmit =(e) =>
   .catch((error)=>{
       console.error("Erro ao Editar:", error);
   })
-}
+}*/
     render() {
 
         return (

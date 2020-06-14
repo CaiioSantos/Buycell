@@ -1,12 +1,12 @@
 import React from 'react';
 
-import firebase from '../../Firebase';
+//import firebase from '../../Firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
 class Adicionar extends React.Component {
-  constructor(props){
+ /* constructor(props){
     super(props);
     this.ref = firebase.firestore().collection('Produtos')
     this.state = {
@@ -61,9 +61,9 @@ class Adicionar extends React.Component {
         console.error("Erro ao Adicionar:", error);
     })
   }
-
+*/
   render(){
-      const {name, description, preco} = this.state;
+      
     return(
       <div className="container">
           <div>

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import firebase from '../../Firebase';
+//import firebase from '../../Firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
 
 class Mostrar extends React.Component {
-    constructor(props) {
+   /* constructor(props) {
         super(props);
         this.state = {
             produto: [],
@@ -40,7 +40,7 @@ class Mostrar extends React.Component {
         }).catch(function(error){
             console.log('erro enquanto estava deletendo o arquivo')
         })
-    }
+    }*/
 
     render() {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
 //import Entidades from './controllers/Entidades';
-import firebase from '../../Firebase';
+//import firebase from '../../Firebase';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
@@ -10,9 +10,10 @@ import {Link} from 'react-router-dom'
 
 
 class Listar extends React.Component {
-  constructor(props){
+  /*constructor(props){
     super(props);
     this.ref = firebase.firestore().collection("Produtos");
+    console.log(this.ref)
     this.unsubscribe = null;
     this.state = {
     produtos : []
@@ -20,6 +21,7 @@ class Listar extends React.Component {
   }
   componentDidMount(){
     this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+    console.log(this.unsubscribe)
   }
 
   onCollectionUpdate = (querySnapshot) => {
@@ -37,7 +39,8 @@ class Listar extends React.Component {
    this.setState({
      produtos
    })
-  }
+   console.log(produtos)
+  }*/
 
   render(){
     return(
@@ -56,7 +59,7 @@ class Listar extends React.Component {
             </thead>
             <tbody>
               {this.state.produtos.map(produto =>
-                <tr>
+                <tr key={produto.id}>
                   <td><Link to = {`/mostrar/${produto.key}`}>{produto.name}</Link></td>
                   <td>{produto.description}</td>
                   <td>{produto.preco}</td>
