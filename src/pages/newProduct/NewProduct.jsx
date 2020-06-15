@@ -17,6 +17,7 @@ const NewProduct = () =>{
         armazenamento: '',
         ram: '',
     })
+    
     async function handleSubmit(event) {
         event.preventDefault()
 
@@ -32,7 +33,7 @@ const NewProduct = () =>{
             armazenamento,
             ram
         } = formData
-        console.log(formData)
+        
         const resp = await api.post('/produto',{
             modelo,
             marca,
@@ -48,11 +49,8 @@ const NewProduct = () =>{
             }
         )
              
-        console.log(resp)
+        console.log(resp.data.message)
 
-        //await api.post('points',data)
-        //setResult(true)
-        //setTimeout(() => {history.push('/')},500)
     }
 
     function handleInputChange(event) {

@@ -9,6 +9,7 @@ const NewProduct = () =>{
         email: '',
         number: '',
         password: '',
+        cpf: ''
         
     })
     async function handleSubmit(event) {
@@ -18,19 +19,19 @@ const NewProduct = () =>{
             email,
             number,
             password,
-            
+            cpf,  
         } = formData
-        console.log(formData)
-        const resp = await api.post('/produto',{
+        
+        const resp = await api.post('/usuario',{
             name,
             email,
             number,
             password,
-            
+            cpf
             }
         )
              
-        console.log(resp)
+        console.log(resp.data.message)
 
     }
 
@@ -55,7 +56,7 @@ const NewProduct = () =>{
                 </div>
 
                 <div className="form-group">
-                    <label for="name">E-mail</label>
+                    <label for="email">E-mail</label>
                     <input type="text" 
                         onChange={handleInputChange}
                         className="form-control" 
@@ -65,7 +66,7 @@ const NewProduct = () =>{
                 </div>
             
                 <div className="form-group">
-                    <label for="name">Número de celular</label>
+                    <label for="number">Número de celular</label>
                     <input className="form-control col-lg-2" 
                         name="number"
                         onChange={handleInputChange}  
@@ -73,9 +74,19 @@ const NewProduct = () =>{
                         placeholder="Numero"
                         />
                 </div>
+
+                <div className="form-group">
+                    <label for="cpf">CPF</label>
+                    <input className="form-control col-lg-2" 
+                        name="cpf"
+                        onChange={handleInputChange}  
+                        type="number" 
+                        placeholder="Cpf"
+                        />
+                </div>
             
                 <div className="form-group">
-                    <label for="name">Senha</label>
+                    <label for="password">Senha</label>
                     <input
                         type ="password"
                         className="form-control" 
