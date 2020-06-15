@@ -38,9 +38,9 @@ export default function Routes() {
         <Route path="/signup" component={SignUp}/>
         <Route path="/checkout" component={Checkout}/>
 
-        <Route path="/" component={NewProduct}/>
+        <Route path="/" exact component={NewProduct}/>
         
-        <Route path="/login"  component={Login}/>
+        <Route path="/login"   component={Login}/>
         <Route path="/editarFuncionario/:id"component={EditarFuncionario}/>
         <Route path="/mostrarFuncionario/:id"component={ShowFuncionarios}/>
         <Route path='/listarFuncionarios' exact component={ListarFuncionario}/>

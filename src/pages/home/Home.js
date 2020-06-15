@@ -53,7 +53,7 @@ const Home = () => {
 
   useEffect(() => {
     async function loadProdutos() {
-      const response = await api.get('/produtos')
+      const response = await api.get('/produto')
       setProdutos(response.data)
     }
 

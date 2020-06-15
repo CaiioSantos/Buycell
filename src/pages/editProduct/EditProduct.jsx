@@ -32,7 +32,7 @@ const NewProduct = () =>{
             armazenamento,
             ram
         } = formData
-        console.log(formData)
+        
         const resp = await api.post('/produto',{
             modelo,
             marca,
