@@ -1,9 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-//import ListarProduto from './controllers/Produto/ListarProduto';
 
-//import ShowProdutos from './controllers/Produto/ShowProdutos';
-//import EditarProdutos from './controllers/Produto/Editar&DeletarProduto';
 import Cart from './pages/cart/Cart'
 import Product from './pages/product/Product'
 import Home from './pages/home/Home'
@@ -11,47 +8,57 @@ import Login from './pages/login/Login'
 import SignUp from './pages/signUp/SignUp'
 import Checkout from './pages/checkout/Checkout'
 import NewProduct from './pages/newProduct/NewProduct'
+import ListarProdutos from './pages/listarProdutos/ListarProdutos'
 import NewUsuario from './pages/newUsuario/NewUsuario'
 import NewFuncionario from './pages/newFuncionario/NewFuncionario'
+import ListarFuncionarios from './pages/listarFuncionarios/ListarFuncionarios'
+import ListarUsuarios from './pages/listarUsuarios/ListarUsuarios'
 
-import ListarFuncionario from './controllers/Funcionario/ListarFuncionarios'
+
+
 import EditarFuncionario from './controllers/Funcionario/Editar&DeletarFuncionario'
 import ShowFuncionarios from './controllers/Funcionario/ShowFuncionarios'
 
-import ListarUsuario from './controllers/Usuario/ListarUsuarios'
+
 import EditarUsuario from './controllers/Usuario/Editar&DeletarUsuario'
 import ShowUsuarios from './controllers/Usuario/ShowUsuarios'
 
-//<Route path="/mostrar/:id"component={ShowProdutos}/>
-//<Route path="/editar/:id"component={EditarProdutos}/>
-//<Route path="/mostrar/:id"component={ShowProdutos}/> <Route path='/listarProduto' exact component={ListarProduto}/>  
+
 
 
 export default function Routes() {
-    return <BrowserRouter>
+    return ( 
+        <BrowserRouter>
         
        
+            <Route path="/login"   component={Login}/>
+            <Route path="/cart/"component={Cart}/>
+            <Route path="/product/"component={Product}/>
+            <Route path="/home" component={Home}/>
        
-        <Route path="/cart/"component={Cart}/>
-        <Route path="/product/"component={Product}/>
-        <Route path="/home" component={Home}/>
-       
-        <Route path="/signup" component={SignUp}/>
-        <Route path="/checkout" component={Checkout}/>
+            <Route path="/signup" component={SignUp}/>
+            <Route path="/checkout" component={Checkout}/>
 
-        <Route path="/createProdutc" component={NewProduct}/>
-        <Route path="/createUser" component={NewUsuario}/>
-        <Route path="/createFuncionario" component={NewFuncionario}/>
-        
-        <Route path="/login"   component={Login}/>
-        <Route path="/editarFuncionario/:id"component={EditarFuncionario}/>
-        <Route path="/mostrarFuncionario/:id"component={ShowFuncionarios}/>
-        <Route path='/listarFuncionarios' exact component={ListarFuncionario}/>
-       
-        <Route path="/editarUsuario/:id"component={EditarUsuario}/>
-        <Route path="/mostrarUsuario/:id"component={ShowUsuarios}/>
-        <Route path='/listarUsuarios' exact component={ListarUsuario}/>
-        
+            <Route path="/createProdutc" component={NewProduct}/>
+            <Route path="/listarProdutos" component={ListarProdutos}/>
 
-    </BrowserRouter>
+            <Route path="/createUser" component={NewUsuario}/>
+            <Route path='/listarUsuarios' exact component={ListarUsuarios}/>
+
+            <Route path="/createFuncionario" component={NewFuncionario}/>
+            <Route path='/listarFuncionarios' exact component={ListarFuncionarios}/>
+
+            
+
+            <Route path="/editarFuncionario/:id"component={EditarFuncionario}/>
+            <Route path="/mostrarFuncionario/:id"component={ShowFuncionarios}/>
+            
+        
+            <Route path="/editarUsuario/:id"component={EditarUsuario}/>
+            <Route path="/mostrarUsuario/:id"component={ShowUsuarios}/>
+            
+            
+
+        </BrowserRouter>
+    )
 }

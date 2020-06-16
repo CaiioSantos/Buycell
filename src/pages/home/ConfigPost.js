@@ -47,7 +47,7 @@ export default function FeaturedPost(props) {
           <div className={classes.cardDetails}>
             <CardContent>
               <Typography component="h2" variant="h5">
-                {post.id}
+                {post.modelo}
               </Typography>
               <Typography variant="inherit" color="textSecondary">
                 {post.marca}
