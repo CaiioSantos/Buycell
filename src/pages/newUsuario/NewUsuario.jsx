@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import api from '../../services/api'
 
 
-const NewProduct = () =>{
+const NewUser = () =>{
     
     const [formData, setFormData] = useState({
         name: '',
@@ -108,4 +108,4 @@ const NewProduct = () =>{
 
 }
 
-export default NewProduct
+export default NewUser

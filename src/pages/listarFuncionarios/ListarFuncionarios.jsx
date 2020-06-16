@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import {Link} from 'react-router-dom'
 import api from '../../services/api'
 
 
-const NewProduct = () =>{
+const ListarFuncionarios = () =>{
     
   const [funcionarios, setFuncionarios] = useState([])
 
@@ -41,6 +42,8 @@ const NewProduct = () =>{
               <th>Nome</th>
               <th>E-mail</th>
               <th>Celular</th>
+              <th>Excluir</th>
+              <th>Editar</th>
             </tr>
           </thead>
           <tbody>
@@ -58,6 +61,7 @@ const NewProduct = () =>{
                         color="primary">Excluir
                     </button>
                 </td>
+                <td><Link to = {`/editarFuncionario/${funcionario.email}`} class ="btn btn-success">Editar</Link></td>
               </tr> 
               )}
           </tbody>
@@ -69,4 +73,4 @@ const NewProduct = () =>{
 
 }
 
-export default NewProduct
+export default ListarFuncionarios

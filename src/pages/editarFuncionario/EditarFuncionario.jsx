@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import api from '../../services/api'
 
 
-const NewFuncionario = () =>{
+const EditarFuncionario = (props) =>{
     
     const [formData, setFormData] = useState({
         name: '',
@@ -10,6 +10,20 @@ const NewFuncionario = () =>{
         number: '',
         password: ''
     })
+
+    useEffect(() => {
+        const { email } = props.match.params
+        
+        async function getFuncionario() {
+            const response = await api.get(`/funcionario/${email}`)
+
+            setFormData(response.data)
+        }
+        
+        getFuncionario()
+
+    }, [props.match.params])
+
     async function handleSubmit(event) {
         event.preventDefault()
 
@@ -19,7 +33,7 @@ const NewFuncionario = () =>{
             password  
         } = formData
         
-        const resp = await api.post('/funcionario',{
+        const resp = await api.put('/funcionario',{
             name,
             email,
             number,
@@ -45,6 +59,7 @@ const NewFuncionario = () =>{
                     <label for="name">Nome</label>
                     <input type="text" 
                         onChange={handleInputChange}
+                        value={formData.name}
                         className="form-control" 
                         name="name"   
                         placeholder="Coloque o nome"
@@ -55,6 +70,7 @@ const NewFuncionario = () =>{
                     <label for="email">E-mail</label>
                     <input type="text" 
                         onChange={handleInputChange}
+                        value={formData.email}
                         className="form-control" 
                         name="email"   
                         placeholder="Coloque a Marca"
@@ -65,7 +81,8 @@ const NewFuncionario = () =>{
                     <label for="number">Número de celular</label>
                     <input className="form-control col-lg-2" 
                         name="number"
-                        onChange={handleInputChange}  
+                        onChange={handleInputChange}
+                        value={formData.number}  
                         type="number" 
                         placeholder="Numero"
                         />
@@ -78,6 +95,7 @@ const NewFuncionario = () =>{
                         className="form-control" 
                         name="password"
                         onChange={handleInputChange}
+                        value={formData.password}
                         placeholder="Senha"
                         />
                 </div>
@@ -85,7 +103,7 @@ const NewFuncionario = () =>{
             </div>
           
             <div className="Buttons">
-                <button className="Submit-button" type="submit" onClick={handleSubmit} > Adicionar</button>
+                <button className="Submit-button" type="submit" onClick={handleSubmit}> Salvar</button>
             </div>
 
           </form>
@@ -94,4 +112,4 @@ const NewFuncionario = () =>{
 
 }
 
-export default NewFuncionario
+export default EditarFuncionario
